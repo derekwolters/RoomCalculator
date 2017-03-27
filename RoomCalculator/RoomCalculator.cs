@@ -99,6 +99,7 @@ namespace RoomCalculator
             while (xitChoice != "N" && xitChoice != "Y")
             {
                 Console.WriteLine("Not a vaid answer. Do you have another room? Enter Y or N.");
+                xitChoice = Console.ReadLine().ToUpper();
             }
 
             return xitChoice == "N" ? true : false;           
