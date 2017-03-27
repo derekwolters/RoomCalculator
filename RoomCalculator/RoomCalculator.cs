@@ -46,10 +46,8 @@ namespace RoomCalculator
                 displayResult("volume", result);
                 
                 //exit program               
-                if (exitProgram())
-                break;
-            }
-            
+                if (exitProgram()) break;
+            }            
         }
 
         static float getInputDimensions(string dimType)
@@ -103,14 +101,7 @@ namespace RoomCalculator
                 Console.WriteLine("Not a vaid answer. Do you have another room? Enter Y or N.");
             }
 
-            if (xitChoice == "N")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return xitChoice == "N" ? true : false;           
         }
     }
 }
