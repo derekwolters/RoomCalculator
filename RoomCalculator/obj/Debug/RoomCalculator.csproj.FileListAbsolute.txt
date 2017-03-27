@@ -1,0 +1,6 @@
+c:\users\derek\documents\visual studio 2015\Projects\RoomCalculator\RoomCalculator\bin\Debug\RoomCalculator.exe.config
+c:\users\derek\documents\visual studio 2015\Projects\RoomCalculator\RoomCalculator\bin\Debug\RoomCalculator.exe
+c:\users\derek\documents\visual studio 2015\Projects\RoomCalculator\RoomCalculator\bin\Debug\RoomCalculator.pdb
+c:\users\derek\documents\visual studio 2015\Projects\RoomCalculator\RoomCalculator\obj\Debug\RoomCalculator.csprojResolveAssemblyReference.cache
+c:\users\derek\documents\visual studio 2015\Projects\RoomCalculator\RoomCalculator\obj\Debug\RoomCalculator.exe
+c:\users\derek\documents\visual studio 2015\Projects\RoomCalculator\RoomCalculator\obj\Debug\RoomCalculator.pdb
