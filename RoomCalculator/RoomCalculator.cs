@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 ///-----------------------------------------------------------------
 ///   Namespace:    RoomCalculator
@@ -20,52 +21,88 @@ namespace RoomCalculator
             float width = 0;
             float length = 0;
             float height = 0;
-            float result = 0;            
+            float area = 0;
+            float perimeter = 0;
+            float volume = 0;           
             bool keepGoing = true;
+            List<string> results = new List<string> { };
 
             Console.WriteLine("This program will calculate the Area, Perimeter, and Volume of a room.");
             
             //keep running as long as user wishes
             while (keepGoing)
             {
+                //if (results.Count > 0)
+                //{                   
+                //    printList(results);
+                //}
+                
                 //get user dimensions
-                width = getInputDimensions("width");
-                length = getInputDimensions("length");
-                height = getInputDimensions("height");
+                width = getInputDimensions("width", results);
+                length = getInputDimensions("length", results);
+                height = getInputDimensions("height", results);
             
                 //calculate area
-                result = calcArea(width, length);
-                displayResult("area", result);
+                area = calcArea(width, length);
+                displayResult("area", area);
 
                 //calculate perimeter
-                result = calcPerimeter(width, length);
-                displayResult("perimeter", result);
+                perimeter = calcPerimeter(width, length);
+                displayResult("perimeter", perimeter);
 
                 //calculate volume
-                result = calcVolume(width, length, height);
-                displayResult("volume", result);
-                
+                volume = calcVolume(width, length, height);                
+                displayResult("volume", volume);
+
+                results.Add("Width: " + width +
+                            " -- Length: " + length +
+                            " -- Height: " + height +
+                            " -- Area: " + area +
+                            " -- Perimeter:" + perimeter +
+                            " -- Volume:" + volume);
+
+                printList(results);
                 //exit program               
                 if (exitProgram()) break;
             }            
         }
 
-        static float getInputDimensions(string dimType)
+        static float getInputDimensions(string dimType, List<string> list)
         {
             string input = "";
             float temp;
 
-            Console.WriteLine("Enter a " + dimType + " dimension:");
+            Console.WriteLine("Enter a " + dimType + " dimension: ");
 
             input = Console.ReadLine();
-
+            
             while (!float.TryParse(input, out temp))
             {
                 Console.WriteLine("Not a valid input. Try again.");
                 input = Console.ReadLine();
-            }
+            }            
 
             return temp;
+        }
+
+        static void printList(List<string> list)
+        {
+            Console.WriteLine("Type \"print\" to display a list of " +
+                                        "previous entries or press ENTER to " +
+                                        "continue");
+            string input = Console.ReadLine().ToLower();
+
+            if (input.Contains("print"))
+            {
+                foreach (string entry in list)
+                {
+                    Console.WriteLine(entry);
+                }                
+            }
+            else
+            {
+                return;
+            }
         }
 
         static float calcArea(float w, float l)
@@ -85,7 +122,7 @@ namespace RoomCalculator
 
         static void displayResult(string dimType, float dim)
         {
-            Console.WriteLine("The " + dimType + " of the room is: " + dim);
+            Console.WriteLine("The " + dimType + " of the room is: " + dim);            
         }
 
         static Boolean exitProgram()
